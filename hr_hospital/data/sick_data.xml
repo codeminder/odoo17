@@ -1,0 +1,16 @@
+<odoo>
+    <record id="sick_cold" model="hr_hospital.sick">
+        <field name="name">Cold</field>
+        <field name="description">Common cold with symptoms such as sneezing, runny nose, and sore throat.</field>
+    </record>
+
+    <record id="sick_flu" model="hr_hospital.sick">
+        <field name="name">Flu</field>
+        <field name="description">Influenza causing high fever, body aches, and fatigue.</field>
+    </record>
+
+    <record id="sick_allergy" model="hr_hospital.sick">
+        <field name="name">Allergy</field>
+        <field name="description">Seasonal allergy causing itchy eyes, sneezing, and nasal congestion.</field>
+    </record>
+</odoo>

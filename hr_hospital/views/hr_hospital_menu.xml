@@ -1,0 +1,40 @@
+<odoo>
+    
+    <!-- Define the Hospital Management menu -->
+    <menuitem id="hr_hospital_management_menu" name="Hospital Management" sequence="1"/>
+    
+    <!-- Define action for Patients -->
+    <record id="action_hr_hospital_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">hr_hospital.patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Define action for Doctors -->
+    <record id="action_hr_hospital_doctor" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="res_model">hr_hospital.doctor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Define action for Sicks -->
+    <record id="action_hr_hospital_sick" model="ir.actions.act_window">
+        <field name="name">Sicks</field>
+        <field name="res_model">hr_hospital.sick</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Define action for Appointments -->
+    <record id="action_hr_hospital_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="res_model">hr_hospital.appointment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Link the actions to menu items -->
+    <menuitem id="hr_hospital_patient_menu" name="Patients" parent="hr_hospital_management_menu" action="action_hr_hospital_patient"/>
+    <menuitem id="hr_hospital_doctor_menu" name="Doctors" parent="hr_hospital_management_menu" action="action_hr_hospital_doctor"/>
+    <menuitem id="hr_hospital_sick_menu" name="Sicks" parent="hr_hospital_management_menu" action="action_hr_hospital_sick"/>
+    <menuitem id="hr_hospital_appointment_menu" name="Appointments" parent="hr_hospital_management_menu" action="action_hr_hospital_appointment"/>
+
+</odoo>
