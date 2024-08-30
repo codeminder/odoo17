@@ -1,0 +1,34 @@
+<odoo>
+    <!-- Tree View for Diagnosis -->
+    <record id="view_diagnosis_tree" model="ir.ui.view">
+        <field name="name">hr.hospital.diagnosis.tree</field>
+        <field name="model">hr_hospital.diagnosis</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="diagnosis_date"/>
+                <field name="doctor_id"/>
+                <field name="patient_id"/>
+                <field name="sick_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Diagnosis -->
+    <record id="view_diagnosis_form" model="ir.ui.view">
+        <field name="name">hr.hospital.diagnosis.form</field>
+        <field name="model">hr_hospital.diagnosis</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="diagnosis_date"/>
+                    <field name="doctor_id"/>
+                    <field name="patient_id"/>
+                    <field name="sick_id"/>
+                </group>
+                <group>
+                    <field name="treatment"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,21 +1,21 @@
 <odoo>
-    <record id="view_doctor_tree" model="ir.ui.view">
-        <field name="name">hr.hospital.doctor.tree</field>
-        <field name="model">hr_hospital.doctor</field>
+    <record id="view_contact_person_tree" model="ir.ui.view">
+        <field name="name">hr.hospital.contact.person.tree</field>
+        <field name="model">hr_hospital.contact_person</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="first_name"/>
                 <field name="last_name"/>
-                <field name="specialization"/>
+                <field name="relationship"/>
                 <field name="phone"/>
                 <field name="email"/>
             </tree>
         </field>
     </record>
 
-    <record id="view_doctor_form" model="ir.ui.view">
-        <field name="name">hr.hospital.doctor.form</field>
-        <field name="model">hr_hospital.doctor</field>
+    <record id="view_contact_person_form" model="ir.ui.view">
+        <field name="name">hr.hospital.contact.person.form</field>
+        <field name="model">hr_hospital.contact_person</field>
         <field name="arch" type="xml">
             <form>
                 <group>
@@ -23,7 +23,7 @@
                     <field name="last_name"/>
                 </group>
                 <group>
-                    <field name="specialization"/>
+                    <field name="relationship"/>
                 </group>
                 <group>
                     <field name="phone"/>

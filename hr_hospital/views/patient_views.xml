@@ -36,6 +36,9 @@
                     <field name="contact_person_id"/>
                     <field name="doctor_id"/>
                 </group>
+                <group>
+                    <field name="photo" widget="image" class="oe_avatar"/>
+                </group>
             </form>
         </field>
     </record>

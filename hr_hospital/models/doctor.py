@@ -8,5 +8,4 @@ class Doctor(models.Model):
     _description = "Doctor"
     _inherit = 'hr_hospital.person'
 
-    name = fields.Char(required=True)
     specialization = fields.Char()
