@@ -1,29 +1,16 @@
 <odoo>
-    <record id="view_form_hr_hospital_patient" model="ir.ui.view">
-        <field name="name">hr_hospital.patient.form</field>
-        <field name="model">hr_hospital.patient</field>
-        <field name="arch" type="xml">
-            <form string="Patient">
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="age"/>
-                        <field name="gender"/>
-                        <field name="doctor_id"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
     <record id="view_tree_hr_hospital_patient" model="ir.ui.view">
         <field name="name">hr_hospital.patient.tree</field>
         <field name="model">hr_hospital.patient</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
+                <field name="last_name"/>
+                <field name="birth_date"/>
+                <field name="age"/>
+                <field name="passport_data"/>
                 <field name="age"/>
                 <field name="gender"/>
+                <field name="contact_person_id"/>
                 <field name="doctor_id"/>
             </tree>
         </field>
