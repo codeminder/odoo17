@@ -27,3 +27,24 @@ class Patient(models.Model):
                                  < (record.birth_date.month, record.birth_date.day)))
             else:
                 record.age = 0
+    
+    @api.model
+    def create(self, vals):
+        record = super(Patient, self).create(vals)
+        if record.doctor_id:
+            self.env['hr_hospital.doctor_change_history'].create({
+                'patient_id': record.id,
+                'doctor_id': record.doctor_id.id
+            })
+        return record
+
+    def write(self, vals):
+        res = super(Patient, self).write(vals)
+        if 'doctor_id' in vals:
+            for record in self:
+                if record.doctor_id:
+                    self.env['hr_hospital.doctor_change_history'].create({
+                        'patient_id': record.id,
+                        'doctor_id': record.doctor_id.id
+                    })
+        return res

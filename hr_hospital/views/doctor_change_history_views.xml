@@ -1,0 +1,43 @@
+<odoo>
+    <!-- Tree View for Doctor Change History -->
+    <record id="view_hr_hospital_doctor_change_history_tree" model="ir.ui.view">
+        <field name="name">hr.hospital.doctor.change.history.tree</field>
+        <field name="model">hr_hospital.doctor_change_history</field>
+        <field name="arch" type="xml">
+            <tree string="Doctor Change History">
+                <field name="date_time" />
+                <field name="patient_id" />
+                <field name="doctor_id" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Doctor Change History -->
+    <record id="view_hr_hospital_doctor_change_history_form" model="ir.ui.view">
+        <field name="name">hr.hospital.doctor.change.history.form</field>
+        <field name="model">hr_hospital.doctor_change_history</field>
+        <field name="arch" type="xml">
+            <form string="Doctor Change History">
+                <sheet>
+                    <group>
+                        <field name="date_time" />
+                        <field name="patient_id" />
+                        <field name="doctor_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Doctor Change History -->
+    <record id="action_hr_hospital_doctor_change_history" model="ir.actions.act_window">
+        <field name="name">Doctor Change History</field>
+        <field name="res_model">hr_hospital.doctor_change_history</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item for Doctor Change History -->
+    <menuitem id="menu_hr_hospital_doctor_change_history" name="Doctor Change History"
+              parent="base.menu_administration"
+              action="action_hr_hospital_doctor_change_history" />
+</odoo>

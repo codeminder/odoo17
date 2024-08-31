@@ -6,3 +6,4 @@ access_hr_hospital_appointment,hr_hospital.appointment,model_hr_hospital_appoint
 access_hr_hospital_person,hr_hospital.person,model_hr_hospital_person,base.group_user,1,1,1,1
 access_hr_hospital_contact_person,hr_hospital.contact_person,model_hr_hospital_contact_person,base.group_user,1,1,1,1
 access_hr_hospital_diagnosis,hr_hospital.diagnosis,model_hr_hospital_diagnosis,"base.group_user",1,1,1,1
+access_hr_hospital_doctor_change_history,hr_hospital.doctor_change_history,model_hr_hospital_doctor_change_history,"base.group_user",1,1,1,1

@@ -7,3 +7,4 @@ from . import patient
 from . import sick
 from . import appointment
 from . import diagnosis
+from . import doctor_change_history

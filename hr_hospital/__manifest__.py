@@ -21,6 +21,7 @@
         "views/appointment_views.xml",
         "views/diagnosis_views.xml",
         "views/hr_hospital_menu.xml",
+        "views/doctor_change_history_views.xml",
         "data/sick_data.xml",
     ],
     # only loaded in demonstration mode
