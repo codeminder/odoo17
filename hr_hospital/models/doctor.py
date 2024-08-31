@@ -9,3 +9,7 @@ class Doctor(models.Model):
     _inherit = 'hr_hospital.person'
 
     specialization = fields.Char()
+    
+    # Override name_get to call parent's name_get method
+    def name_get(self):
+        return super(Doctor, self).name_get()

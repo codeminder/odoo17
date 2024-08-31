@@ -4,6 +4,7 @@
         <field name="model">hr_hospital.doctor</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="photo" widget="image" options="{'size': [48, 48]}" />
                 <field name="first_name"/>
                 <field name="last_name"/>
                 <field name="specialization"/>

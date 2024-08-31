@@ -18,4 +18,4 @@ class Sick(models.Model):
     parent_id = fields.Many2one('hr_hospital.sick', string="Parent sick", index=True, ondelete='cascade')
     child_ids = fields.One2many('hr_hospital.sick', 'parent_id', string="Secondary sicks")
     
-    parent_path = fields.Char(index=True)  # This field is required for hierarchical searching
+    parent_path = fields.Char(index=True, unaccent=False)  # This field is required for hierarchical searching
