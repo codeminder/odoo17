@@ -26,6 +26,7 @@
     # only loaded in demonstration mode
     "demo": [
         "data/demo_data.xml",
+        'data/sick_demo.xml',
     ],
     'installable': True,
     'application': True,

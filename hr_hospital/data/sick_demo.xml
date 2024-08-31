@@ -1,0 +1,27 @@
+<odoo>
+    <!-- Parent Disease -->
+    <record id="sick_respiratory_infection" model="hr_hospital.sick">
+        <field name="name">Інфекція дихальних шляхів</field>
+        <field name="description">Хвороба, що вражає дихальні шляхи.</field>
+    </record>
+
+    <!-- Child Diseases -->
+    <record id="sick_bronchitis" model="hr_hospital.sick">
+        <field name="name">Бронхіт</field>
+        <field name="description">Запалення бронхів, яке викликає кашель і затруднене дихання.</field>
+        <field name="parent_id" ref="sick_respiratory_infection"/>
+    </record>
+
+    <record id="sick_pneumonia" model="hr_hospital.sick">
+        <field name="name">Пневмонія</field>
+        <field name="description">Запалення легень, зазвичай викликане інфекцією.</field>
+        <field name="parent_id" ref="sick_respiratory_infection"/>
+    </record>
+
+    <!-- Sub-child Disease -->
+    <record id="sick_viral_pneumonia" model="hr_hospital.sick">
+        <field name="name">Вірусна пневмонія</field>
+        <field name="description">Пневмонія, спричинена вірусом.</field>
+        <field name="parent_id" ref="sick_pneumonia"/>
+    </record>
+</odoo>
