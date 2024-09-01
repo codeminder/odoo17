@@ -29,6 +29,11 @@
         "data/demo_data.xml",
         'data/sick_demo.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'hr_hospital/static/src/js/diagnosis_form_controller.js',
+        ],
+    },
     'installable': True,
     'application': True,
 }

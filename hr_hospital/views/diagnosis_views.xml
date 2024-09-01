@@ -29,7 +29,7 @@
                     <field name="treatment"/>
                 </group>
                 <group>
-                    <field name="mentor_comment" />
+                    <field name="mentor_comment" modifiers='{"isVisible": "state.isIntern"}'/>
                 </group>
             </form>
         </field>
