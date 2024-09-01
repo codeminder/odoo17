@@ -10,6 +10,8 @@
                 <field name="specialization"/>
                 <field name="phone"/>
                 <field name="email"/>
+                <field name="is_intern"/>
+                <field name="mentor_id"/>
             </tree>
         </field>
     </record>
@@ -19,6 +21,9 @@
         <field name="model">hr_hospital.doctor</field>
         <field name="arch" type="xml">
             <form>
+                <group>
+                    <field name="photo" widget="image" class="oe_avatar"/>
+                </group>
                 <group>
                     <field name="first_name"/>
                     <field name="last_name"/>
@@ -31,7 +36,8 @@
                     <field name="email"/>
                 </group>
                 <group>
-                    <field name="photo" widget="image" class="oe_avatar"/>
+                    <field name="is_intern"/>
+                    <field name="mentor_id"/>
                 </group>
             </form>
         </field>

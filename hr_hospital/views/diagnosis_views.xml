@@ -28,6 +28,9 @@
                 <group>
                     <field name="treatment"/>
                 </group>
+                <group>
+                    <field name="mentor_comment" />
+                </group>
             </form>
         </field>
     </record>
