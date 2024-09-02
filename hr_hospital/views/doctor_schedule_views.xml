@@ -1,0 +1,39 @@
+<odoo>
+    <record id="view_hr_hospital_doctor_schedule_tree" model="ir.ui.view">
+        <field name="name">hr.hospital.doctor.schedule.tree</field>
+        <field name="model">hr_hospital.doctor.schedule</field>
+        <field name="arch" type="xml">
+            <tree string="Doctor Schedule">
+                <field name="doctor_id"/>
+                <field name="appointment_date"/>
+                <field name="appointment_time" widget="float_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_hospital_doctor_schedule_form" model="ir.ui.view">
+        <field name="name">hr.hospital.doctor.schedule.form</field>
+        <field name="model">hr_hospital.doctor.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Doctor Schedule">
+                <sheet>
+                    <group>
+                        <field name="doctor_id"/>
+                        <field name="appointment_date"/>
+                        <field name="appointment_time" widget="float_time"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_hospital_doctor_schedule" model="ir.actions.act_window">
+        <field name="name">Doctor Schedules</field>
+        <field name="res_model">hr_hospital.doctor.schedule</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hr_hospital_doctor_schedule_menu" name="Doctor Schedules"
+              parent="hr_hospital_management_menu" action="action_hr_hospital_doctor_schedule"/>
+
+</odoo>
