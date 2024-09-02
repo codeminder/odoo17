@@ -10,6 +10,7 @@
                         <field name="doctor_id"/>
                         <field name="appointment_date"/>
                         <field name="sickness_id"/>
+                        <field name="appointment_occurred"/>
                     </group>
                 </sheet>
             </form>
@@ -24,6 +25,7 @@
                 <field name="patient_id"/>
                 <field name="doctor_id"/>
                 <field name="appointment_date"/>
+                <field name="appointment_occurred"/>
             </tree>
         </field>
     </record>
