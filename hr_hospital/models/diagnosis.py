@@ -23,12 +23,18 @@ class Diagnosis(models.Model):
             if not self.doctor_id.mentor_id:
                 raise ValidationError("Intern doctors must have a mentor assigned.")
 
-    @api.model
-    def create(self, vals):
-        diagnosis = super(Diagnosis, self).create(vals)
-        if diagnosis.doctor_id.is_intern and not diagnosis.mentor_comment:  # Updated to `is_intern`
-            raise ValidationError("A mentor's comment is required when an intern makes a diagnosis.")
-        return diagnosis
+    @api.model_create_multi
+    def create(self, vals_list):
+        """Override create to handle batch creation properly."""
+        # Ensure vals_list is a list (for batch processing)
+        if not isinstance(vals_list, list):
+            vals_list = [vals_list]
+            
+        diagnosisis = super(Diagnosis, self).create(vals_list)
+        for diagnosis in diagnosisis:
+            if diagnosis.doctor_id.is_intern and not diagnosis.mentor_comment:  # Updated to `is_intern`
+                raise ValidationError("A mentor's comment is required when an intern makes a diagnosis.")
+        return diagnosisis
 
     def write(self, vals):
         res = super(Diagnosis, self).write(vals)

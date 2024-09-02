@@ -28,15 +28,21 @@ class Patient(models.Model):
             else:
                 record.age = 0
     
-    @api.model
-    def create(self, vals):
-        record = super(Patient, self).create(vals)
-        if record.doctor_id:
-            self.env['hr_hospital.doctor_change_history'].create({
-                'patient_id': record.id,
-                'doctor_id': record.doctor_id.id
-            })
-        return record
+    @api.model_create_multi
+    def create(self, vals_list):
+        """Override create to handle batch creation properly."""
+        # Ensure vals_list is a list (for batch processing)
+        if not isinstance(vals_list, list):
+            vals_list = [vals_list]
+            
+        records = super(Patient, self).create(vals_list)
+        for record in records:
+            if record.doctor_id:
+                self.env['hr_hospital.doctor_change_history'].create({
+                    'patient_id': record.id,
+                    'doctor_id': record.doctor_id.id
+                })
+        return records
 
     def write(self, vals):
         res = super(Patient, self).write(vals)
