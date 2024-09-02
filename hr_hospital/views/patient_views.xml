@@ -1,9 +1,20 @@
-<odoo>
+<odoo>  
+    <record id="action_mass_doctor_reassignment_wizard" model="ir.actions.act_window">
+        <field name="name">Mass Reassign Doctor</field>
+        <field name="res_model">hr_hospital.mass_doctor_reassignment_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_patient_ids': active_ids}</field>
+    </record>
+    
     <record id="view_tree_hr_hospital_patient" model="ir.ui.view">
         <field name="name">hr_hospital.patient.tree</field>
         <field name="model">hr_hospital.patient</field>
         <field name="arch" type="xml">
             <tree>
+                <header>
+                    <button name="%(action_mass_doctor_reassignment_wizard)d" string="Mass Reassign Doctor" type="action" class="btn-primary" context="{'active_ids': active_ids}" />
+                </header>
                 <field name="last_name"/>
                 <field name="birth_date"/>
                 <field name="age"/>

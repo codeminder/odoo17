@@ -8,3 +8,4 @@ access_hr_hospital_contact_person,hr_hospital.contact_person,model_hr_hospital_c
 access_hr_hospital_diagnosis,hr_hospital.diagnosis,model_hr_hospital_diagnosis,"base.group_user",1,1,1,1
 access_hr_hospital_doctor_change_history,hr_hospital.doctor_change_history,model_hr_hospital_doctor_change_history,"base.group_user",1,1,1,1
 access_hr_hospital_doctor_schedule,hr_hospital.doctor_schedule,model_hr_hospital_doctor_schedule,"base.group_user",1,1,1,1
+access_hr_hospital_mass_doctor_reassignment_wizard,hr_hospital.mass_doctor_reassignment_wizard,model_hr_hospital_mass_doctor_reassignment_wizard,"base.group_user",1,1,1,1
