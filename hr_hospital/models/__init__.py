@@ -9,3 +9,4 @@ from . import appointment
 from . import diagnosis
 from . import doctor_change_history
 from . import doctor_schedule
+from . import mass_doctor_reassignment_wizard
