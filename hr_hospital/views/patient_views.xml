@@ -4,7 +4,7 @@
         <field name="res_model">hr_hospital.mass_doctor_reassignment_wizard</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
-        <field name="context">{'default_patient_ids': active_ids}</field>
+        <field name="context">{'default_patient_ids': [p.id for p in env['hr_hospital.patient'].browse(active_ids)]}</field>
     </record>
     
     <record id="view_tree_hr_hospital_patient" model="ir.ui.view">
@@ -13,7 +13,11 @@
         <field name="arch" type="xml">
             <tree>
                 <header>
-                    <button name="%(action_mass_doctor_reassignment_wizard)d" string="Mass Reassign Doctor" type="action" class="btn-primary" context="{'active_ids': active_ids}" />
+                    <button 
+                        name="%(action_mass_doctor_reassignment_wizard)d" 
+                        string="Mass Reassign Doctor" 
+                        type="action" class="btn-primary" 
+                        context="{'default_patient_ids': [p.id for p in env['hr_hospital.patient'].browse(active_ids)]}" />
                 </header>
                 <field name="last_name"/>
                 <field name="birth_date"/>
