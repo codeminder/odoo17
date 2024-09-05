@@ -1,10 +1,13 @@
 <odoo>  
+    <!-- Action definition for the wizard -->
     <record id="action_mass_doctor_reassignment_wizard" model="ir.actions.act_window">
         <field name="name">Mass Reassign Doctor</field>
         <field name="res_model">hr_hospital.mass_doctor_reassignment_wizard</field>
         <field name="view_mode">form</field>
+        <field name="view_id" ref="hr_hospital.view_mass_doctor_reassignment_wizard_form"/>
         <field name="target">new</field>
-        <field name="context">{'default_patient_ids': [p.id for p in env['hr_hospital.patient'].browse(active_ids)]}</field>
+        <!-- Context to pass the patient IDs to the wizard -->
+        <field name="context">{'default_patient_ids': records.ids}</field>
     </record>
     
     <record id="view_tree_hr_hospital_patient" model="ir.ui.view">
@@ -13,11 +16,12 @@
         <field name="arch" type="xml">
             <tree>
                 <header>
-                    <button 
-                        name="%(action_mass_doctor_reassignment_wizard)d" 
-                        string="Mass Reassign Doctor" 
-                        type="action" class="btn-primary" 
-                        context="{'default_patient_ids': [p.id for p in env['hr_hospital.patient'].browse(active_ids)]}" />
+                    <!-- Button with Action Binding -->
+                    <button string="Mass Reassign Doctor"
+                            type="action"
+                            name="%(action_mass_doctor_reassignment_wizard)d"
+                            action="action_mass_doctor_reassignment_wizard"
+                            class="btn-primary"/>                            
                 </header>
                 <field name="last_name"/>
                 <field name="birth_date"/>

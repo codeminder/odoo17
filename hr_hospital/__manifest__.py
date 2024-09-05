@@ -7,7 +7,7 @@
     "author": "Roman Rabotin",
     "website": "https://github.com/codeminder/odoo17/tree/17.0",
     "category": "Human Resources",
-    "version": "17.0.0.0.0",
+    "version": "17.0.0.1.3",
     'license': 'GPL-2',
     # any module necessary for this one to work correctly
     "depends": ["base"],
@@ -15,6 +15,7 @@
     "data": [
         "security/ir.model.access.csv",
         "views/doctor_views.xml",
+        "wizard/mass_doctor_reassignment_wizard_views.xml",
         "views/patient_views.xml",
         "views/contact_person_views.xml",
         "views/sick_views.xml",
@@ -24,7 +25,6 @@
         "views/doctor_change_history_views.xml",
         "data/sick_data.xml",
         "views/doctor_schedule_views.xml",
-        "wizard/mass_doctor_reassignment_wizard_views.xml",
     ],
     # only loaded in demonstration mode
     "demo": [

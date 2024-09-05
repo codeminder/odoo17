@@ -8,22 +8,22 @@ class MassDoctorReassignmentWizard(models.TransientModel):
     _description = 'Mass Reassignment of Personal Doctor'
 
     new_doctor_id = fields.Many2one('hr_hospital.doctor', string='New Doctor', required=True)
+    patient_ids = fields.Many2many(
+        'hr_hospital.patient', 
+        string='Patients',
+        relation='doctor_reassign_patient_rel',)
+
+    @api.model
+    def default_get(self, fields):
+        """ Populate default values for the wizard fields. """
+        res = super(MassDoctorReassignmentWizard, self).default_get(fields)
+        if 'default_patient_ids' in self.env.context:
+            patient_ids = self.env.context.get('default_patient_ids')
+            res.update({'patient_ids': [(6, 0, patient_ids)]})
+        return res
 
     def action_reassign_doctor(self):
-        """Reassign the selected patients to a new personal doctor."""
-        patient_ids = self.env.context.get('active_ids', [])
-        if not patient_ids:
-            raise UserError("No patients selected.")
-        
-        # Reassign the doctor
-        patients = self.env['hr_hospital.patient'].browse(patient_ids)
-        for patient in patients:
-            
-            patient.doctor_id = self.new_doctor_id.id
-
-            # Create a history record for the change
-            self.env['hr_hospital.doctor_change_history'].create({
-                'patient_id': patient.id,
-                'doctor_id': self.new_doctor_id.id,
-                'change_date': fields.Datetime.now(),
-            })
+        """ Reassign the selected doctor to the patients. """
+        if self.patient_ids:
+            self.patient_ids.write({'personal_doctor_id': self.new_doctor_id.id})
+        return {'type': 'ir.actions.act_window_close'}
