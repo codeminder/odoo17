@@ -4,7 +4,7 @@
         <field name="name">Mass Reassign Doctor</field>
         <field name="res_model">hr_hospital.mass_doctor_reassignment_wizard</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="hr_hospital.view_mass_doctor_reassignment_wizard_form"/>
+        <!-- <field name="view_id" ref="hr_hospital.view_mass_doctor_reassignment_wizard_form"/> -->
         <field name="target">new</field>
         <!-- Context to pass the patient IDs to the wizard -->
         <field name="context">{'default_patient_ids': records.ids}</field>
@@ -15,14 +15,6 @@
         <field name="model">hr_hospital.patient</field>
         <field name="arch" type="xml">
             <tree>
-                <header>
-                    <!-- Button with Action Binding -->
-                    <button string="Mass Reassign Doctor"
-                            type="action"
-                            name="%(action_mass_doctor_reassignment_wizard)d"
-                            action="action_mass_doctor_reassignment_wizard"
-                            class="btn-primary"/>                            
-                </header>
                 <field name="last_name"/>
                 <field name="birth_date"/>
                 <field name="age"/>
@@ -31,6 +23,16 @@
                 <field name="gender"/>
                 <field name="contact_person_id"/>
                 <field name="doctor_id"/>
+                <header>
+                    <!-- Button with Action Binding -->
+                    <!-- name="hr_hospital.action_mass_doctor_reassignment_wizard" -->
+                    <!-- class="btn-primary" -->
+                    <button string="Mass Reassign Doctor"
+                            type="action"
+                            name="%(action_mass_doctor_reassignment_wizard)d"
+                            class="btn btn-primary open_wizard_action"
+                            />                            
+                </header>
             </tree>
         </field>
     </record>
