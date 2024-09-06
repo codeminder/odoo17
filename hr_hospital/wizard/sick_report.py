@@ -1,0 +1,8 @@
+from odoo import models, fields
+
+class SickReport(models.TransientModel):
+    _name = 'hr_hospital.sick_report'
+    _description = 'Monthly Sick Report'
+
+    disease_id = fields.Many2one('hr_hospital.sick', string='Disease', readonly=True)
+    diagnosis_count = fields.Integer(string='Number of Diagnoses', readonly=True)

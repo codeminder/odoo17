@@ -1,0 +1,31 @@
+<odoo>
+    <!-- Form View for the Sick Report Wizard -->
+    <record id="view_sick_report_wizard_form" model="ir.ui.view">
+        <field name="name">hr.hospital.sick.report.wizard.form</field>
+        <field name="model">hr_hospital.sick_report_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Monthly Sick Report Wizard">
+                <group>
+                    <field name="year"/>
+                    <field name="month"/>
+                </group>
+                <footer>
+                    <button string="Generate Report" type="object" name="action_generate_report" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View for the Sick Report -->
+    <record id="view_sick_report_tree" model="ir.ui.view">
+        <field name="name">hr.hospital.sick.report.tree</field>
+        <field name="model">hr_hospital.sick_report</field>
+        <field name="arch" type="xml">
+            <tree string="Monthly Sick Report">
+                <field name="disease_id"/>
+                <field name="diagnosis_count"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
