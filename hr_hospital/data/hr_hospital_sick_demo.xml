@@ -1,4 +1,5 @@
-<odoo>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
     <!-- Parent Disease -->
     <record id="sick_respiratory_infection" model="hr_hospital.sick">
         <field name="name">Інфекція дихальних шляхів</field>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Tree View for Diagnosis -->
     <record id="view_diagnosis_tree" model="ir.ui.view">

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="sick_cold" model="hr_hospital.sick">
         <field name="name">Cold</field>

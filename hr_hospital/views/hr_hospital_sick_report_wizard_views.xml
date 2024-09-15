@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Form View for the Sick Report Wizard -->
     <record id="view_sick_report_wizard_form" model="ir.ui.view">

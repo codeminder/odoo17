@@ -26,14 +26,14 @@ class SickReportWizard(models.TransientModel):
         # Get the data for the report
         report_data = self.env['hr_hospital.diagnosis'].read_group(
             domain=[('diagnosis_date', '>=', start_date), ('diagnosis_date', '<', end_date)],
-            fields=['sick_id', 'sick_id'],
+            fields=['sick_id'],
             groupby=['sick_id']
         )
 
         # Create report records
         for data in report_data:
             self.env['hr_hospital.sick_report'].create({
-                'sick_id': data['sick_id'],
+                'sick_id': data['sick_id'][0],
                 'diagnosis_count': data['sick_id_count'],
             })
 

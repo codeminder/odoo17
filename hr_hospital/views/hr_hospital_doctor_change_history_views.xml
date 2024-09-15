@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Tree View for Doctor Change History -->
     <record id="view_hr_hospital_doctor_change_history_tree" model="ir.ui.view">

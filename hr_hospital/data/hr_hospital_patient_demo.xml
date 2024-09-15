@@ -1,20 +1,5 @@
-<odoo>
-    <!-- Demo data for Doctors -->
-    <record id="doctor_john" model="hr_hospital.doctor">
-        <field name="name">Dr. John Doe</field>
-        <field name="specialization">Cardiologist</field>
-    </record>
-
-    <record id="doctor_jane" model="hr_hospital.doctor">
-        <field name="name">Dr. Jane Smith</field>
-        <field name="specialization">Pediatrician</field>
-    </record>
-
-    <record id="doctor_william" model="hr_hospital.doctor">
-        <field name="name">Dr. William Brown</field>
-        <field name="specialization">General Practitioner</field>
-    </record>
-
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
     <!-- Demo data for Patients -->
     <record id="patient_mike" model="hr_hospital.patient">
         <field name="name">Mike Johnson</field>
