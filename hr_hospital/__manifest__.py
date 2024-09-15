@@ -25,8 +25,8 @@
         "views/doctor_change_history_views.xml",
         "data/sick_data.xml",
         "views/doctor_schedule_views.xml",
+        "views/sick_report_wizard_views.xml",
         "views/hr_hospital_sick_report_views.xml",
-        "wizard/sick_report_wizard_views.xml",
     ],
     # only loaded in demonstration mode
     "demo": [

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Action to Open the Sick Report Wizard -->
     <record id="action_sick_report_wizard" model="ir.actions.act_window">
@@ -12,15 +13,18 @@
     <record id="doctor_form_view_inherit" model="ir.ui.view">
         <field name="name">hr.hospital.doctor.form.inherit</field>
         <field name="model">hr_hospital.doctor</field>
-        <field name="inherit_id" ref="hr_hospital.view_hr_hospital_doctor_form"/>
+        <field name="inherit_id" ref="hr_hospital.view_doctor_form"/>
         <field name="arch" type="xml">
-            <button name="action_print_report" string="Print" type="action" class="oe_stat_button" context="{'active_model': 'hr_hospital.doctor'}">
+            <!-- <button name="action_print_report" string="Print" type="action" class="oe_stat_button" context="{'active_model': 'hr_hospital.doctor'}">
                 <menuitem string="Monthly Sick Report" id="doctor_sick_report_wizard_button" action="action_sick_report_wizard"/>
-            </button>
+            </button> -->
+            <xpath expr="//form/group" position="inside">
+                <button name="%(action_sick_report_wizard)d" string="Monthly Sick Report" type="action" class="oe_highlight"/>
+            </xpath>
         </field>
     </record>
 
     <!-- New "Reporting" Menu in the "Hospital" Module -->
-    <menuitem id="menu_hospital_reporting" name="Reporting" parent="menu_hospital" sequence="30"/>
+    <menuitem id="menu_hospital_reporting" name="Reporting" parent="hr_hospital_management_menu" sequence="30"/>
     <menuitem id="menu_sick_report_wizard" name="Monthly Sick Report" parent="menu_hospital_reporting" action="action_sick_report_wizard"/>
 </odoo>
