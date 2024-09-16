@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_appointment_reschedule_wizard_form" model="ir.ui.view">
+        <field name="name">appointment.reschedule.wizard.form</field>
+        <field name="model">hr_hospital.appointment_reschedule_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Reschedule Appointment">
+                <group>
+                    <field name="appointment_id" readonly="1"/>
+                    <field name="new_doctor_id" options="{'no_create': True}"/>
+                    <field name="new_appointment_date"/>
+                </group>
+                <footer>
+                    <button string="Reschedule" type="object" name="action_reschedule_appointment" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open the wizard -->
+    <record id="action_appointment_reschedule_wizard" model="ir.actions.act_window">
+        <field name="name">Reschedule Appointment</field>
+        <field name="res_model">hr_hospital.appointment_reschedule_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_appointment_id': active_id}</field>
+    </record>
+
+    <!-- Add button reshedule wizard in appointment form -->
+    <record id="view_hr_hospital_appointment_form" model="ir.ui.view">
+        <field name="name">hr.hospital.appointment.form</field>
+        <field name="model">hr_hospital.appointment</field>
+        <field name="inherit_id" ref="hr_hospital.view_form_hr_hospital_appointment"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <button name="%(action_appointment_reschedule_wizard)d" type="action" string="Reschedule" class="btn-secondary"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

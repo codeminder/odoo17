@@ -42,3 +42,15 @@ class Appointment(models.Model):
             if record.diagnosis_id:
                 raise ValidationError("You cannot delete or archive appointment with diagnosis!")
         return super(Appointment, self).unlink()
+    
+    # Action for reshedule wizard
+    def action_reschedule_wizard(self):
+        """Open the wizard to reschedule the appointment."""
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Reschedule Appointment',
+            'res_model': 'hr_hospital.appointment_reschedule_wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'default_appointment_id': self.id},
+        }
