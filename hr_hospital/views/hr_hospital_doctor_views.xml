@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="action_doctor_weekly_schedule_wizard" model="ir.actions.act_window">
+        <field name="name">Doctor Weekly Schedule Wizard</field>
+        <field name="res_model">hr_hospital.doctor_weekly_schedule_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
     <record id="view_doctor_tree" model="ir.ui.view">
         <field name="name">hr.hospital.doctor.tree</field>
         <field name="model">hr_hospital.doctor</field>
         <field name="arch" type="xml">
             <tree>
-                <!-- <field name="photo" widget="image" class="oe_avatar"/> -->
                 <field name="first_name"/>
                 <field name="last_name"/>
                 <field name="specialization"/>
@@ -39,6 +45,11 @@
                 <group>
                     <field name="is_intern"/>
                     <field name="mentor_id"/>
+                </group>
+                <group>
+                    <xpath expr="//form/sheet" position="inside">
+                        <button name="%(action_doctor_weekly_schedule_wizard)d" string="Doctor Weekly Scedule" type="action" class="oe_highlight"/>
+                    </xpath>
                 </group>
             </form>
         </field>

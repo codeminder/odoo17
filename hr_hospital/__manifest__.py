@@ -27,6 +27,7 @@
         "views/hr_hospital_sick_report_wizard_views.xml",
         "views/hr_hospital_sick_report_views.xml",
         "wizard/hr_hospital_appointment_reschedule_wizard_views.xml",
+        "wizard/hr_hospital_doctor_weekly_scedule_wizard_views.xml",
     ],
     # only loaded in demonstration mode
     "demo": [
