@@ -1,3 +1,4 @@
+""" Appointment to assign a Patient meeting with Doctor """
 
 from odoo import api, models, fields
 from odoo.exceptions import ValidationError

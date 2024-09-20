@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Form View for the Sick Report Wizard -->
-    <record id="view_sick_report_wizard_form" model="ir.ui.view">
+    <record id="hr_hospital_sick_report_wizard_view_form" model="ir.ui.view">
         <field name="name">hr.hospital.sick.report.wizard.form</field>
         <field name="model">hr_hospital.sick_report_wizard</field>
         <field name="arch" type="xml">
@@ -19,7 +19,7 @@
     </record>
 
     <!-- Tree View for the Sick Report -->
-    <record id="view_sick_report_tree" model="ir.ui.view">
+    <record id="hr_hospital_view_sick_report_tree" model="ir.ui.view">
         <field name="name">hr.hospital.sick.report.tree</field>
         <field name="model">hr_hospital.sick_report</field>
         <field name="arch" type="xml">

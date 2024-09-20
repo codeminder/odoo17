@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_contact_person_tree" model="ir.ui.view">
+    <record id="hr_hospital_contact_person_view_tree" model="ir.ui.view">
         <field name="name">hr.hospital.contact.person.tree</field>
         <field name="model">hr_hospital.contact_person</field>
         <field name="arch" type="xml">
@@ -14,7 +14,7 @@
         </field>
     </record>
 
-    <record id="view_contact_person_form" model="ir.ui.view">
+    <record id="hr_hospital_contact_person_view_form" model="ir.ui.view">
         <field name="name">hr.hospital.contact.person.form</field>
         <field name="model">hr_hospital.contact_person</field>
         <field name="arch" type="xml">

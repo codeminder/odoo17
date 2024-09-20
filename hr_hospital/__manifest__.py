@@ -1,9 +1,10 @@
+
 {
     "name": "Hospital Management",
     "summary": """
         The module to automate using of hospital HR
         for appointment adoctor to patient""",
-    "author": "Roman Rabotin",
+    "author": "Roman Rabotin, Odoo Community Association (OCA)",
     "website": "https://github.com/codeminder/odoo17/tree/17.0",
     "category": "Human Resources",
     "version": "17.0.0.1.3",

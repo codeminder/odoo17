@@ -1,3 +1,4 @@
+""" Contact persont for Patients """
 
 from odoo import models, fields
 
