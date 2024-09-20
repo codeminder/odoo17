@@ -1,14 +1,15 @@
 
 from odoo import models, fields, api
-from odoo.exceptions import UserError
+
 
 class MassDoctorReassignmentWizard(models.TransientModel):
     _name = 'hr_hospital.mass_doctor_reassignment_wizard'
     _description = 'Mass Reassignment of Personal Doctor'
 
-    new_doctor_id = fields.Many2one('hr_hospital.doctor', string='New Doctor', required=True)
+    new_doctor_id = fields.Many2one(
+        'hr_hospital.doctor', string='New Doctor', required=True)
     patient_ids = fields.Many2many(
-        'hr_hospital.patient', 
+        'hr_hospital.patient',
         string='Patients',
         relation='doctor_reassign_patient_rel',)
 
@@ -24,5 +25,6 @@ class MassDoctorReassignmentWizard(models.TransientModel):
     def action_reassign_doctor(self):
         """ Reassign the selected doctor to the patients. """
         if self.patient_ids:
-            self.patient_ids.write({'personal_doctor_id': self.new_doctor_id.id})
+            self.patient_ids.write(
+                {'personal_doctor_id': self.new_doctor_id.id})
         return {'type': 'ir.actions.act_window_close'}

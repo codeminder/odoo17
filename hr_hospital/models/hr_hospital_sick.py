@@ -12,9 +12,13 @@ class Sick(models.Model):
 
     name = fields.Char(string='Sickness Name', required=True)
     description = fields.Text()
-    
-     # Hierarchical fields
-    parent_id = fields.Many2one('hr_hospital.sick', string="Parent sick", index=True, ondelete='cascade')
-    child_ids = fields.One2many('hr_hospital.sick', 'parent_id', string="Secondary sicks")
-    
-    parent_path = fields.Char(index=True, unaccent=False)  # This field is required for hierarchical searching
+
+    # Hierarchical fields
+    parent_id = fields.Many2one('hr_hospital.sick',
+                                string="Parent sick",
+                                index=True, ondelete='cascade')
+    child_ids = fields.One2many('hr_hospital.sick', 'parent_id',
+                                string="Secondary sicks")
+
+    # This field is required for hierarchical searching
+    parent_path = fields.Char(index=True, unaccent=False)

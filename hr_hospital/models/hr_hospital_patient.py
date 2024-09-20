@@ -14,26 +14,27 @@ class Patient(models.Model):
     contact_person_id = fields.Many2one('hr_hospital.contact_person')
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')])
     doctor_id = fields.Many2one('hr_hospital.doctor')
-    
+
     @api.depends('birth_date')
     def _compute_age(self):
         """Розраховує вік пацієнта на основі дати народження."""
         for record in self:
             if record.birth_date:
                 today = date.today()
-                record.age = (today.year - record.birth_date.year 
-                              - ((today.month, today.day) 
-                                 < (record.birth_date.month, record.birth_date.day)))
+                record.age = (today.year - record.birth_date.year
+                              - ((today.month, today.day)
+                                 < (record.birth_date.month,
+                                    record.birth_date.day)))
             else:
                 record.age = 0
-    
+
     @api.model_create_multi
     def create(self, vals_list):
         """Override create to handle batch creation properly."""
         # Ensure vals_list is a list (for batch processing)
         if not isinstance(vals_list, list):
             vals_list = [vals_list]
-            
+
         records = super(Patient, self).create(vals_list)
         for record in records:
             if record.doctor_id:

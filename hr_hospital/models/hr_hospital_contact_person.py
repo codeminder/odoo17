@@ -9,4 +9,4 @@ class ContactPerson(models.Model):
     _description = 'Contact Person'
 
     # Additional fields specific to Contact Person
-    relationship = fields.Char(string="Ступінь спорідненості")
+    relationship = fields.Char(string="Level of relate")

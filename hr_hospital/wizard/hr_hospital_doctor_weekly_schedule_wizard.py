@@ -6,8 +6,11 @@ class DoctorWeeklyScheduleWizard(models.TransientModel):
     _name = 'hr_hospital.doctor_weekly_schedule_wizard'
     _description = 'Doctor Weekly Schedule Wizard'
 
-    doctor_id = fields.Many2one('hr_hospital.doctor', string="Doctor", required=True)
-    week_type = fields.Selection([('even', 'Even Week'), ('odd', 'Odd Week')], string="Week Type", required=True)
+    doctor_id = fields.Many2one('hr_hospital.doctor',
+                                string="Doctor", required=True)
+    week_type = fields.Selection([
+        ('even', 'Even Week'),
+        ('odd', 'Odd Week')], string="Week Type", required=True)
     monday_start = fields.Float(string="Monday Start Time")
     monday_end = fields.Float(string="Monday End Time")
     tuesday_start = fields.Float(string="Tuesday Start Time")
@@ -34,13 +37,41 @@ class DoctorWeeklyScheduleWizard(models.TransientModel):
 
         # Створюємо новий розклад
         schedule_vals = [
-            {'day': 'monday', 'start_time': self.monday_start, 'end_time': self.monday_end},
-            {'day': 'tuesday', 'start_time': self.tuesday_start, 'end_time': self.tuesday_end},
-            {'day': 'wednesday', 'start_time': self.wednesday_start, 'end_time': self.wednesday_end},
-            {'day': 'thursday', 'start_time': self.thursday_start, 'end_time': self.thursday_end},
-            {'day': 'friday', 'start_time': self.friday_start, 'end_time': self.friday_end},
-            {'day': 'saturday', 'start_time': self.saturday_start, 'end_time': self.saturday_end},
-            {'day': 'sunday', 'start_time': self.sunday_start, 'end_time': self.sunday_end},
+            {
+                'day': 'monday',
+                'start_time': self.monday_start,
+                'end_time': self.monday_end
+            },
+            {
+                'day': 'tuesday',
+                'start_time': self.tuesday_start,
+                'end_time': self.tuesday_end
+            },
+            {
+                'day': 'wednesday',
+                'start_time': self.wednesday_start,
+                'end_time': self.wednesday_end
+            },
+            {
+                'day': 'thursday',
+                'start_time': self.thursday_start,
+                'end_time': self.thursday_end
+            },
+            {
+                'day': 'friday',
+                'start_time': self.friday_start,
+                'end_time': self.friday_end
+            },
+            {
+                'day': 'saturday',
+                'start_time': self.saturday_start,
+                'end_time': self.saturday_end
+            },
+            {
+                'day': 'sunday',
+                'start_time': self.sunday_start,
+                'end_time': self.sunday_end
+            },
         ]
 
         for vals in schedule_vals:
