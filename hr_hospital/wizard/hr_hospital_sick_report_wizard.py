@@ -1,5 +1,5 @@
-from odoo import models, fields
 from datetime import datetime, timedelta
+from odoo import models, fields
 
 
 class SickReportWizard(models.TransientModel):
@@ -8,13 +8,13 @@ class SickReportWizard(models.TransientModel):
 
     year = fields.Selection(
         [(str(y), str(y)) for y in range(2000, datetime.now().year + 1)],
-        string='Year', required=True, default=str(datetime.now().year))
+        required=True, default=str(datetime.now().year))
     month = fields.Selection([
         ('01', 'January'), ('02', 'February'), ('03', 'March'),
         ('04', 'April'), ('05', 'May'), ('06', 'June'),
         ('07', 'July'), ('08', 'August'), ('09', 'September'),
         ('10', 'October'), ('11', 'November'), ('12', 'December')],
-        string='Month', required=True,
+        required=True,
         default=str(datetime.now().month).zfill(2))
 
     def action_generate_report(self):

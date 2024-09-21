@@ -7,10 +7,10 @@ class DoctorWeeklyScheduleWizard(models.TransientModel):
     _description = 'Doctor Weekly Schedule Wizard'
 
     doctor_id = fields.Many2one('hr_hospital.doctor',
-                                string="Doctor", required=True)
+                                required=True)
     week_type = fields.Selection([
         ('even', 'Even Week'),
-        ('odd', 'Odd Week')], string="Week Type", required=True)
+        ('odd', 'Odd Week')], required=True)
     monday_start = fields.Float(string="Monday Start Time")
     monday_end = fields.Float(string="Monday End Time")
     tuesday_start = fields.Float(string="Tuesday Start Time")

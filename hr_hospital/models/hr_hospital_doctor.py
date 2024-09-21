@@ -18,5 +18,5 @@ class Doctor(models.Model):
     )
 
     # Override name_get to call parent's name_get method
-    def name_get(self):
-        return super(Doctor, self).name_get()
+    # def name_get(self):
+    #     return super(Doctor, self).name_get()

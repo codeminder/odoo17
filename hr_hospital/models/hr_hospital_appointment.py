@@ -1,6 +1,6 @@
 """ Appointment to assign a Patient meeting with Doctor """
 
-from odoo import api, models, fields
+from odoo import api, models, fields, _
 from odoo.exceptions import ValidationError
 
 
@@ -30,7 +30,8 @@ class Appointment(models.Model):
             ])
             if conflicting_visit:
                 raise ValidationError(
-                    'A doctor cannot have two appointments at the same time.')
+                    _('A doctor cannot have two '
+                      'appointments at the same time.'))
 
     # Restrict to change appointment date for done visits
     @api.constrains('appointment_date', 'doctor_id')
@@ -38,15 +39,16 @@ class Appointment(models.Model):
         for record in self:
             if record.appointment_date < fields.Datetime.now():
                 raise ValidationError(
-                    "You cannot change the appointment date "
-                    "if it has already gone!")
+                    _("You cannot change the appointment date "
+                      "if it has already gone!"))
 
     # Restrict delete or arch visits with diagnosises
     def unlink(self):
         for record in self:
             if record.diagnosis_id:
                 raise ValidationError(
-                    "You cannot delete or archive appointment with diagnosis!")
+                    _("You cannot delete or archive "
+                      "appointment with diagnosis!"))
         return super(Appointment, self).unlink()
 
     # Action for reshedule wizard

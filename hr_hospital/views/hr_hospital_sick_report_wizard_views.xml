@@ -23,7 +23,7 @@
         <field name="name">hr.hospital.sick.report.tree</field>
         <field name="model">hr_hospital.sick_report</field>
         <field name="arch" type="xml">
-            <tree string="Monthly Sick Report">
+            <tree>
                 <field name="sick_id"/>
                 <field name="diagnosis_count"/>
             </tree>

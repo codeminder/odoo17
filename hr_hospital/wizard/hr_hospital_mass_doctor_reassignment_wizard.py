@@ -14,12 +14,13 @@ class MassDoctorReassignmentWizard(models.TransientModel):
         relation='doctor_reassign_patient_rel',)
 
     @api.model
-    def default_get(self, fields):
+    def default_get(self, fields_list):
         """ Populate default values for the wizard fields. """
-        res = super(MassDoctorReassignmentWizard, self).default_get(fields)
+        res = super(
+            MassDoctorReassignmentWizard, self).default_get(fields_list)
         if 'default_patient_ids' in self.env.context:
-            patient_ids = self.env.context.get('default_patient_ids')
-            res.update({'patient_ids': [(6, 0, patient_ids)]})
+            default_patient_ids = self.env.context.get('default_patient_ids')
+            res.update({'patient_ids': [(6, 0, default_patient_ids)]})
         return res
 
     def action_reassign_doctor(self):

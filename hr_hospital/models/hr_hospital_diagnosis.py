@@ -1,5 +1,5 @@
 
-from odoo import api, models, fields
+from odoo import api, models, fields, _
 from odoo.exceptions import ValidationError
 
 
@@ -14,8 +14,7 @@ class Diagnosis(models.Model):
     sick_id = fields.Many2one('hr_hospital.sick', required=True)
     treatment = fields.Text()
 
-    mentor_comment = fields.Text(string="Mentor Comment",
-                                 help="Comment by the mentor doctor if "
+    mentor_comment = fields.Text(help="Comment by the mentor doctor if "
                                  "the diagnosis is made by an intern.")
 
     @api.onchange('doctor_id')
@@ -25,8 +24,8 @@ class Diagnosis(models.Model):
         # Updated to `is_intern`
         if self.doctor_id and self.doctor_id.is_intern:
             if not self.doctor_id.mentor_id:
-                raise ValidationError("Intern doctors must "
-                                      "have a mentor assigned.")
+                raise ValidationError(_("Intern doctors must "
+                                      "have a mentor assigned."))
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -40,9 +39,9 @@ class Diagnosis(models.Model):
             # Updated to `is_intern`
             if (diagnosis.doctor_id.is_intern
                     and not diagnosis.mentor_comment):
-                raise ValidationError("A mentor's comment is "
-                                      "required when an intern "
-                                      "makes a diagnosis.")
+                raise ValidationError(_("A mentor's comment is "
+                                        "required when an intern "
+                                        "makes a diagnosis."))
         return diagnosisis
 
     def write(self, vals):
@@ -50,7 +49,7 @@ class Diagnosis(models.Model):
         for record in self:
             # Updated to `is_intern`
             if record.doctor_id.is_intern and not record.mentor_comment:
-                raise ValidationError("A mentor's comment is "
-                                      "required when an intern "
-                                      "makes a diagnosis.")
+                raise ValidationError(_("A mentor's comment is "
+                                        "required when an intern "
+                                        "makes a diagnosis."))
         return res

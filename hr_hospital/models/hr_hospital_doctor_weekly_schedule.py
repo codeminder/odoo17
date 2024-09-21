@@ -6,7 +6,7 @@ class DoctorWeeklySchedule(models.Model):
     _description = 'Doctor Schedule'
 
     doctor_id = fields.Many2one('hr_hospital.doctor',
-                                string="Doctor", required=True)
+                                required=True)
     day = fields.Selection([
         ('monday', 'Monday'),
         ('tuesday', 'Tuesday'),
@@ -15,13 +15,12 @@ class DoctorWeeklySchedule(models.Model):
         ('friday', 'Friday'),
         ('saturday', 'Saturday'),
         ('sunday', 'Sunday'),
-    ], string="Day", required=True)
+    ], required=True)
     week_type = fields.Selection([('even', 'Even Week'),
                                   ('odd', 'Odd Week')],
-                                 string="Week Type",
                                  required=True)
-    start_time = fields.Float(string="Start Time", required=True)
-    end_time = fields.Float(string="End Time", required=True)
+    start_time = fields.Float(required=True)
+    end_time = fields.Float(required=True)
 
     _sql_constraints = [
         ('unique_schedule', 'UNIQUE(doctor_id, day, week_type)',

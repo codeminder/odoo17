@@ -20,14 +20,10 @@
                 <field name="birth_date"/>
                 <field name="age"/>
                 <field name="passport_data"/>
-                <field name="age"/>
                 <field name="gender"/>
                 <field name="contact_person_id"/>
                 <field name="doctor_id"/>
                 <header>
-                    <!-- Button with Action Binding -->
-                    <!-- name="hr_hospital.action_mass_doctor_reassignment_wizard" -->
-                    <!-- class="btn-primary" -->
                     <button string="Mass Reassign Doctor"
                             type="action"
                             name="%(hr_hospital_mass_doctor_reassignment_wizard_action)d"
