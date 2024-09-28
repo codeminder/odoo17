@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<odoo noupdate="1">
     <record id="sick_cold" model="hr_hospital.sick">
         <field name="name">Cold</field>
         <field name="description">Common cold with symptoms such as sneezing, runny nose, and sore throat.</field>

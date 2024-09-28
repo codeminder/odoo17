@@ -57,6 +57,29 @@
                 <group>
                     <field name="photo" widget="image" class="oe_avatar"/>
                 </group>
+                <group>
+                    <field name="diagnosis_ids">
+                        <tree>
+                            <field name="sick_id"/>
+                            <field name="doctor_id"/>
+                            <field name="diagnosis_date"/>
+                        </tree>
+                    </field>
+                </group>
+                <group>
+                    <field name="appointment_ids">
+                        <tree>
+                            <field name="doctor_id"/>
+                            <field name="appointment_date"/>
+                        </tree>
+                    </field>
+                </group>
+                <!-- Buttons to show history -->
+                <group>
+                    <button name="action_show_visit_history" string="Історія відвідувань" type="object" class="btn-primary"/>
+                    <button name="action_show_treatment_history" string="Історія призначень" type="object" class="btn-primary"/>
+                    <button name="action_show_tests_history" string="Історія аналізів" type="object" class="btn-primary"/>
+                </group>
             </form>
         </field>
     </record>
