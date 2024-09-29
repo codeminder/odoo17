@@ -5,10 +5,10 @@
         <field name="name">Mass Reassign Doctor</field>
         <field name="res_model">hr_hospital.mass_doctor_reassignment_wizard</field>
         <field name="view_mode">form</field>
-        <!-- <field name="view_id" ref="hr_hospital.view_mass_doctor_reassignment_wizard_form"/> -->
+        <field name="view_id" ref="hr_hospital_mass_doctor_reassignment_wizard_view_form"/>
         <field name="target">new</field>
         <!-- Context to pass the patient IDs to the wizard -->
-        <field name="context">{'default_patient_ids': records.ids}</field>
+        <field name="context">{'default_patient_ids': active_ids}</field>
     </record>
     
     <record id="hr_hospital_patient_view_tree" model="ir.ui.view">
@@ -16,13 +16,6 @@
         <field name="model">hr_hospital.patient</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="last_name"/>
-                <field name="birth_date"/>
-                <field name="age"/>
-                <field name="passport_data"/>
-                <field name="gender"/>
-                <field name="contact_person_id"/>
-                <field name="doctor_id"/>
                 <header>
                     <button string="Mass Reassign Doctor"
                             type="action"
@@ -30,6 +23,13 @@
                             class="btn btn-primary open_wizard_action"
                             />                            
                 </header>
+                <field name="last_name"/>
+                <field name="birth_date"/>
+                <field name="age"/>
+                <field name="passport_data"/>
+                <field name="gender"/>
+                <field name="contact_person_id"/>
+                <field name="doctor_id"/>
             </tree>
         </field>
     </record>

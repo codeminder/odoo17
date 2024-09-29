@@ -27,5 +27,5 @@ class MassDoctorReassignmentWizard(models.TransientModel):
         """ Reassign the selected doctor to the patients. """
         if self.patient_ids:
             self.patient_ids.write(
-                {'personal_doctor_id': self.new_doctor_id.id})
+                {'doctor_id': self.new_doctor_id.id})
         return {'type': 'ir.actions.act_window_close'}
