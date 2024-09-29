@@ -76,9 +76,12 @@
                 </group>
                 <!-- Buttons to show history -->
                 <group>
-                    <button name="action_show_visit_history" string="Історія відвідувань" type="object" class="btn-primary"/>
-                    <button name="action_show_treatment_history" string="Історія призначень" type="object" class="btn-primary"/>
-                    <button name="action_show_tests_history" string="Історія аналізів" type="object" class="btn-primary"/>
+                    <button name="action_show_appointments_history" string="History of appointments" type="object" class="btn-primary"/>
+                    <button name="action_show_diagnosis_history" string="History of diagnoses" type="object" class="btn-primary"/>
+                    <button name="action_show_analyses_history" string="History of analyses" type="object" class="btn-primary"/>
+                </group>
+                <group>
+                    <button name="action_quick_appointment" string="Quick appointment to a doctor" type="object" class="oe_highlight"/>
                 </group>
             </form>
         </field>

@@ -9,3 +9,4 @@ from . import hr_hospital_diagnosis
 from . import hr_hospital_doctor_change_history
 from . import hr_hospital_doctor_schedule
 from . import hr_hospital_doctor_weekly_schedule
+from . import hr_hospital_analysis

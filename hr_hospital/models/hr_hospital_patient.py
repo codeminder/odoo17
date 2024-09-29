@@ -58,7 +58,7 @@ class Patient(models.Model):
         return res
     
     # Show history of appointment
-    def action_show_visit_history(self):
+    def action_show_appointments_history(self):
         return {
             'type': 'ir.actions.act_window',
             'name': 'History of appointment',
@@ -68,17 +68,17 @@ class Patient(models.Model):
         }
 
     # Show the history of sicks
-    def action_show_sick_history(self):
+    def action_show_diagnosis_history(self):
         return {
             'type': 'ir.actions.act_window',
-            'name': 'History of sicks',
-            'res_model': 'hr_hospital.treatment',
+            'name': 'History of diagnosis',
+            'res_model': 'hr_hospital.diagnosis',
             'view_mode': 'tree,form',
             'domain': [('patient_id', '=', self.id)],
         }
 
     # Show history of analyses
-    def action_show_tests_history(self):
+    def action_show_analyses_history(self):
         return {
             'type': 'ir.actions.act_window',
             'name': 'History of analyses',
@@ -87,12 +87,12 @@ class Patient(models.Model):
             'domain': [('patient_id', '=', self.id)],
         }
 
-    # Метод для швидкого запису до лікаря
+    # Quick appointment to a doctor
     def action_quick_appointment(self):
         return {
             'type': 'ir.actions.act_window',
-            'name': 'Швидкий запис до лікаря',
-            'res_model': 'hr_hospital.appointment_wizard',
+            'name': 'Quick appointment to a doctor',
+            'res_model': 'hr_hospital.appointment',
             'view_mode': 'form',
             'target': 'new',
             'context': {'default_patient_id': self.id},
