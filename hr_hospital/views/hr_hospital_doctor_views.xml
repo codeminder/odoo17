@@ -28,29 +28,60 @@
         <field name="model">hr_hospital.doctor</field>
         <field name="arch" type="xml">
             <form>
-                <group>
-                    <field name="photo" widget="image" class="oe_avatar"/>
-                </group>
-                <group>
-                    <field name="first_name"/>
-                    <field name="last_name"/>
-                </group>
-                <group>
-                    <field name="specialization"/>
-                </group>
-                <group>
-                    <field name="phone"/>
-                    <field name="email"/>
-                </group>
-                <group>
-                    <field name="is_intern"/>
-                    <field name="mentor_id"/>
-                </group>
-                <group>
-                    <xpath expr="//form/sheet" position="inside">
-                        <button name="%(hr_hospital_doctor_weekly_schedule_wizard_action)d" string="Doctor Weekly Scedule" type="action" class="oe_highlight"/>
-                    </xpath>
-                </group>
+                    <group>
+                        <field name="photo" widget="image" class="oe_avatar"/>
+                    </group>
+                    <group>
+                        <field name="first_name"/>
+                        <field name="last_name"/>
+                    </group>
+                    <group>
+                        <field name="specialization"/>
+                    </group>
+                    <group>
+                        <field name="phone"/>
+                        <field name="email"/>
+                    </group>
+                    <group>
+                        <field name="is_intern"/>
+                        <field name="mentor_id"/>
+                    </group>
+                    <group>
+                        <xpath expr="//form/sheet" position="inside">
+                            <button name="%(hr_hospital_doctor_weekly_schedule_wizard_action)d" string="Doctor Weekly Scedule" type="action" class="oe_highlight"/>
+                        </xpath>
+                    </group>
+                    
+                    <!-- Mentor information (if the doctor is an intern) -->
+                    <group string="Mentor" conditions="{'invisible': [('is_intern', '=', False)]}">
+                        <field name="mentor_id"/>
+                    </group>
+
+                    <!-- Intern information (if there are any interns) -->
+                    <group string="Interns" conditions="{'invisible': [('is_intern', '=', False)]}">
+                        <field name="intern_ids">
+                            <kanban>
+                                <field name="first_name"/>
+                                <field name="last_name"/>
+                                <field name="photo" widget="image"/>
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div class="oe_kanban_details">
+                                            <strong>
+                                                <field name="first_name"/> <field name="last_name"/>
+                                            </strong>
+                                            <div>
+                                                <field name="specialization"/>
+                                            </div>
+                                            <div>
+                                                <field name="photo" widget="image"/>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                        </field>
+                    </group>
             </form>
         </field>
     </record>

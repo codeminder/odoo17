@@ -16,6 +16,9 @@ class Doctor(models.Model):
         domain="[('is_intern', '=', False)]",
         help="The mentor doctor for this intern."
     )
+    
+    # Field for interns (inverse of mentor_id)
+    intern_ids = fields.One2many('hr_hospital.doctor', 'mentor_id', string="Interns")
 
     # Override name_get to call parent's name_get method
     # def name_get(self):
