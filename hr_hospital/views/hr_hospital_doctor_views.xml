@@ -85,4 +85,77 @@
             </form>
         </field>
     </record>
+    
+    <!-- Action for creation appointment from kanban -->
+    <record id="hr_hospital_doctor_action_create_appointment" model="ir.actions.act_window">
+        <field name="name">Create Appointment</field>
+        <field name="res_model">hr_hospital.appointment</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="hr_hospital_appointment_view_form"/>
+        <field name="context">{'default_doctor_id': active_id}</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Add a kanban view for doctors -->
+    <record id="hr_hospital_doctor_view_kanban" model="ir.ui.view">
+        <field name="name">hr.hospital.doctor.kanban</field>
+        <field name="model">hr_hospital.doctor</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" default_group_by="specialization">
+                <!-- <field name="specialization"/> -->
+
+                <!-- Group doctors by their specialty -->
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="first_name"/> <field name="last_name"/>
+                                </strong>
+                                <div>
+                                    <field name="specialization"/>
+                                </div>
+                                <div>
+                                    <field name="phone"/>
+                                </div>
+                                <div>
+                                    <field name="email"/>
+                                </div>
+                                <div>
+                                    <field name="photo" widget="image"/>
+                                </div>
+                            </div>
+                            
+                            <!-- Button to create a quick appointment -->
+                            <!-- <a type="action" class="btn btn-primary mt8" string="Book Appointment" name="%(hr_hospital_doctor_action_create_appointment)d" context="{'default_doctor_id': record.id.raw_value}">
+                                Schedule Appointment
+                            </a> -->
+                            <a type="action" class="btn btn-primary mt8" role="button" name="%(hr_hospital_doctor_action_create_appointment)d">
+                                <t t-set="ctx" t-value="{'default_doctor_id': record.id.raw_value}"/>
+                                <!-- <t t-esc="ctx"/> -->
+                                <span>Quick Appointment</span>
+                            </a>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action for a calling the kanban from main menu -->
+    <record id="action_hr_hospital_doctor_kanban" model="ir.actions.act_window">
+        <field name="name">Doctors Kanban</field>
+        <field name="res_model">hr_hospital.doctor</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="hr_hospital_doctor_view_kanban"/>
+    </record>
+
+    <!-- A link the kanban to main menu -->
+    <record id="menu_hr_hospital_doctor_kanban" model="ir.ui.menu">
+        <field name="name">Doctors Kanban</field>
+        <field name="parent_id" ref="hr_hospital_management_menu"/>
+        <field name="action" ref="action_hr_hospital_doctor_kanban"/>
+        <field name="sequence">10</field>
+    </record>
+
 </odoo>
