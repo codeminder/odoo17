@@ -30,4 +30,21 @@
             </tree>
         </field>
     </record>
+
+    <!-- Calendar view for appointment to doctor -->
+    <record id="hr_hospital_appointments_view_calendar" model="ir.ui.view">
+        <field name="name">hr.hospital.appointment.calendar</field>
+        <field name="model">hr_hospital.appointment</field>
+        <field name="arch" type="xml">
+            <calendar string="Doctor Appointments"
+                    date_start="appointment_date"
+                    form_view_id="%(hr_hospital_appointment_view_form)d"
+                    event_open_popup="1"
+                    mode="month">
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+            </calendar>
+        </field>
+    </record>
+
 </odoo>

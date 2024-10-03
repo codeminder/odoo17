@@ -39,11 +39,26 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <!-- Action for calendar of appointments for doctors -->
+    <record id="hr_hospital_doctor_appointments_calendar_action" model="ir.actions.act_window">
+        <field name="name">Doctor Appointments</field>
+        <field name="res_model">hr_hospital.appointment</field>
+        <field name="view_mode">calendar,tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to add a new appointment.
+            </p>
+        </field>
+    </record>
+
     <!-- Link the actions to menu items -->
     <menuitem id="hr_hospital_patient_menu" name="Patients" parent="hr_hospital_management_menu" action="hr_hospital_patient_action"/>
     <menuitem id="hr_hospital_doctor_menu" name="Doctors" parent="hr_hospital_management_menu" action="hr_hospital_doctor_action"/>
     <menuitem id="hr_hospital_sick_menu" name="Sicks" parent="hr_hospital_management_menu" action="hr_hospital_sick_action"/>
     <menuitem id="hr_hospital_appointment_menu" name="Appointments" parent="hr_hospital_management_menu" action="hr_hospital_appointment_action"/>
     <menuitem id="hr_hospital_diagnosis_menu" name="Diagnosis" parent="hr_hospital_management_menu" action="hr_hospital_diagnosis_action"/>
+    <menuitem id="hr_hospital_doctor_appointments_calendar_menu" name="Doctor Appointments Calendar" 
+        parent="hr_hospital_management_menu" action="hr_hospital_doctor_appointments_calendar_action"/>
+    
 
 </odoo>
