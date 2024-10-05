@@ -126,10 +126,6 @@
                                 </div>
                             </div>
                             
-                            <!-- Button to create a quick appointment -->
-                            <!-- <a type="action" class="btn btn-primary mt8" string="Book Appointment" name="%(hr_hospital_doctor_action_create_appointment)d" context="{'default_doctor_id': record.id.raw_value}">
-                                Schedule Appointment
-                            </a> -->
                             <a type="action" class="btn btn-primary mt8" role="button" name="%(hr_hospital_doctor_action_create_appointment)d">
                                 <t t-set="ctx" t-value="{'default_doctor_id': record.id.raw_value}"/>
                                 <!-- <t t-esc="ctx"/> -->
