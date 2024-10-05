@@ -51,6 +51,14 @@
         </field>
     </record>
 
+    <!-- The action for diagnosis pivot report -->
+    <record id="hr_hospital_diagnosis_pivot_action" model="ir.actions.act_window">
+        <field name="name">Diagnosis Pivot</field>
+        <field name="res_model">hr_hospital.diagnosis</field>
+        <field name="view_mode">pivot</field>
+        <field name="context">{}</field>
+    </record>
+
     <!-- Link the actions to menu items -->
     <menuitem id="hr_hospital_patient_menu" name="Patients" parent="hr_hospital_management_menu" action="hr_hospital_patient_action"/>
     <menuitem id="hr_hospital_doctor_menu" name="Doctors" parent="hr_hospital_management_menu" action="hr_hospital_doctor_action"/>
@@ -59,6 +67,10 @@
     <menuitem id="hr_hospital_diagnosis_menu" name="Diagnosis" parent="hr_hospital_management_menu" action="hr_hospital_diagnosis_action"/>
     <menuitem id="hr_hospital_doctor_appointments_calendar_menu" name="Doctor Appointments Calendar" 
         parent="hr_hospital_management_menu" action="hr_hospital_doctor_appointments_calendar_action"/>
+    
+    <menuitem id="hr_hospital_hospital_reporting_menu" name="Reporting" parent="hr_hospital_management_menu"/>
+    <menuitem id="hr_hospital_hospital_diagnosis_pivot_menu" name="Diagnosis Pivot"
+        parent="hr_hospital_hospital_reporting_menu" action="hr_hospital_diagnosis_pivot_action"/>
     
 
 </odoo>

@@ -12,6 +12,11 @@ class Diagnosis(models.Model):
     doctor_id = fields.Many2one('hr_hospital.doctor', required=True)
     patient_id = fields.Many2one('hr_hospital.patient', required=True)
     sick_id = fields.Many2one('hr_hospital.sick', required=True)
+    sick_parent_id = fields.Many2one(
+        related='sick_id.parent_id',
+        string='Sick Type',
+        store=True
+    )
     treatment = fields.Text()
 
     mentor_comment = fields.Text(help="Comment by the mentor doctor if "
