@@ -19,11 +19,11 @@
     </record>
 
     <!-- Define action for Sicks -->
-    <record id="hr_hospital_sick_action" model="ir.actions.act_window">
+    <!-- <record id="hr_hospital_sick_action" model="ir.actions.act_window">
         <field name="name">Sicks</field>
         <field name="res_model">hr_hospital.sick</field>
         <field name="view_mode">tree,form</field>
-    </record>
+    </record> -->
 
     <!-- Define action for Appointments -->
     <record id="hr_hospital_appointment_action" model="ir.actions.act_window">
@@ -74,6 +74,14 @@
             <p class="o_view_nocontent_smiling_face">Create the first medical analysis</p>
         </field>
     </record>
+    
+    <!-- Define action for Sicks with Search-->
+    <record id="hr_hospital_sick_action" model="ir.actions.act_window">
+        <field name="name">Diseases</field>
+        <field name="res_model">hr_hospital.sick</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="hr_hospital_sick_view_search"/>
+    </record>
 
     <!-- Link the actions to menu items -->
     <menuitem id="hr_hospital_patient_menu" name="Patients" parent="hr_hospital_management_menu" action="hr_hospital_patient_action"/>
@@ -100,6 +108,5 @@
             name="Medical Analyses"
             parent="hr_hospital_management_menu"
             action="hr_hospital_analysis_action"/>
-    
 
 </odoo>

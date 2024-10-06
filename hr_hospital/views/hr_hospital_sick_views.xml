@@ -8,7 +8,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="parent_id"/>
+                        <field name="parent_id" options="{'hierarchical': True}"/>
                     </group>
                     <group>
                         <field name="description"/>
@@ -37,4 +37,17 @@
             </tree>
         </field>
     </record>
+
+    <record id="hr_hospital_sick_view_search" model="ir.ui.view">
+        <field name="name">hr.hospital.sick.search</field>
+        <field name="model">hr_hospital.sick</field>
+        <field name="arch" type="xml">
+            <search string="Search Sick">
+                <field name="name"/>
+                <field name="parent_id"/>
+                <!-- <filter string="Root Sicks" domain="[('parent_id', '=', False)]"/> -->
+            </search>
+        </field>
+    </record>
+
 </odoo>
