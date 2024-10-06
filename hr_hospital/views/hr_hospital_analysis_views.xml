@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_hospital_analysis_view_form" model="ir.ui.view">
+        <field name="name">hr.hospital.analysis.form</field>
+        <field name="model">hr_hospital.analysis</field>
+        <field name="arch" type="xml">
+            <form string="Medical Analysis">
+                <sheet>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="analysis_date"/>
+                        <field name="result" widget="text"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_hospital_analysis_view_tree" model="ir.ui.view">
+        <field name="name">hr.hospital.analysis.tree</field>
+        <field name="model">hr_hospital.analysis</field>
+        <field name="arch" type="xml">
+            <tree string="Medical Analyses">
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="analysis_date"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
