@@ -51,8 +51,23 @@
                 <field name="diagnosis_date" interval="month" type="col"/>
                 
                 <!-- Measure: The count of diagnoses -->
-                <!-- <field name="id" string="Diagnoses" type="measure"/> -->
             </pivot>
         </field>
     </record>
+
+    <!-- Graph of diagnosis -->
+    <record id="hr_hospital_diagnosis_view_graph" model="ir.ui.view">
+        <field name="name">hr.hospital.diagnosis.graph</field>
+        <field name="model">hr_hospital.diagnosis</field>
+        <field name="arch" type="xml">
+            <graph string="Diagnosis by Sick Type and Month" type="bar">
+                <!-- Grouping data by Sick -->
+                <field name="sick_id" type="row" string="Sick"/>
+                <!-- Grouping data by month of the appointment -->
+                <field name="diagnosis_date" type="col" interval="month" string="Month"/>
+                <!-- Measure field to count the number of diagnoses -->
+            </graph>
+        </field>
+    </record>
+
 </odoo>

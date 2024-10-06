@@ -59,6 +59,13 @@
         <field name="context">{}</field>
     </record>
 
+    <!-- The action for diagnosis graph -->
+    <record id="hr_hospital_diagnosis_graph_action" model="ir.actions.act_window">
+        <field name="name">Diagnosis</field>
+        <field name="res_model">hr_hospital.diagnosis</field>
+        <field name="view_mode">graph</field>
+    </record>
+
     <!-- Link the actions to menu items -->
     <menuitem id="hr_hospital_patient_menu" name="Patients" parent="hr_hospital_management_menu" action="hr_hospital_patient_action"/>
     <menuitem id="hr_hospital_doctor_menu" name="Doctors" parent="hr_hospital_management_menu" action="hr_hospital_doctor_action"/>
@@ -74,6 +81,11 @@
 
     <menuitem id="hr_hospital_hospital_diagnosis_pivot_menu" name="Diagnosis Pivot"
         parent="hospital_reporting_menu" action="hr_hospital_diagnosis_pivot_action"/>
+    
+    <menuitem id="hr_hospital_hospital_diagnosis_graph_menu"
+          name="Diagnosis Graph"
+          parent="hospital_reporting_menu"
+          action="hr_hospital_diagnosis_graph_action"/>
     
 
 </odoo>
