@@ -68,9 +68,12 @@
     <menuitem id="hr_hospital_doctor_appointments_calendar_menu" name="Doctor Appointments Calendar" 
         parent="hr_hospital_management_menu" action="hr_hospital_doctor_appointments_calendar_action"/>
     
-    <menuitem id="hr_hospital_hospital_reporting_menu" name="Reporting" parent="hr_hospital_management_menu"/>
+    <!-- New "Reporting" Menu in the "Hospital" Module -->
+    <menuitem id="hospital_reporting_menu" name="Reporting" parent="hr_hospital_management_menu" sequence="30"/>
+    <menuitem id="sick_report_wizard_menu" name="Monthly Sick Report" parent="hospital_reporting_menu" action="hr_hospital_sick_report_wizard_action"/>
+
     <menuitem id="hr_hospital_hospital_diagnosis_pivot_menu" name="Diagnosis Pivot"
-        parent="hr_hospital_hospital_reporting_menu" action="hr_hospital_diagnosis_pivot_action"/>
+        parent="hospital_reporting_menu" action="hr_hospital_diagnosis_pivot_action"/>
     
 
 </odoo>

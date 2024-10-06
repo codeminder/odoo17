@@ -21,7 +21,4 @@
         </field>
     </record>
 
-    <!-- New "Reporting" Menu in the "Hospital" Module -->
-    <menuitem id="hospital_reporting_menu" name="Reporting" parent="hr_hospital_management_menu" sequence="30"/>
-    <menuitem id="sick_report_wizard_menu" name="Monthly Sick Report" parent="hospital_reporting_menu" action="hr_hospital_sick_report_wizard_action"/>
 </odoo>
