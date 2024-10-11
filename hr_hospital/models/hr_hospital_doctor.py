@@ -20,6 +20,5 @@ class Doctor(models.Model):
     # Field for interns (inverse of mentor_id)
     intern_ids = fields.One2many('hr_hospital.doctor', 'mentor_id', string="Interns")
 
-    # Override name_get to call parent's name_get method
-    # def name_get(self):
-    #     return super(Doctor, self).name_get()
+    # Field for search by appointments for patients
+    personal_patient_ids = fields.One2many('hr_hospital.patient', 'doctor_id', string="Personal Patients")

@@ -16,6 +16,7 @@
         <field name="name">Doctors</field>
         <field name="res_model">hr_hospital.doctor</field>
         <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="hr_hospital_doctor_view_search"/>
     </record>
 
     <!-- Define action for Sicks -->

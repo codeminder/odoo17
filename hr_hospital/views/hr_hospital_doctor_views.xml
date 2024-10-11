@@ -162,4 +162,16 @@
         <field name="sequence">10</field>
     </record>
 
+    <record id="hr_hospital_doctor_view_search" model="ir.ui.view">
+        <field name="name">Doctor filter</field>
+        <field name="model">hr_hospital.doctor</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter name = "mentors" string="Mentors" domain="[('mentor_id', '=', False)]"/>
+                <filter name = "interns" string="Interns" domain="[('is_intern', '=', True)]"/>
+                <filter name = "not_personal_doctor" string="Not Personal Doctors" domain="[('personal_patient_ids', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
 </odoo>
