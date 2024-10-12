@@ -11,6 +11,7 @@
                         <field name="patient_id"/>
                         <field name="doctor_id"/>
                         <field name="analysis_date"/>
+                        <field name="sample_type"/>
                         <field name="result" widget="text"/>
                     </group>
                 </sheet>
@@ -25,6 +26,7 @@
             <tree string="Medical Analyses">
                 <field name="patient_id"/>
                 <field name="doctor_id"/>
+                <field name="sample_type" widget="statusbar"/>
                 <field name="analysis_date"/>
             </tree>
         </field>
@@ -41,7 +43,7 @@
                     filter_domain="['|', ('patient_first_name', 'ilike', self), ('patient_last_name', 'ilike', self)]"/>
                 <!-- Find by phonenumber -->
                 <field name="patient_phone" string="Patient Phone"/>
-
+                <filter name="groupby_sample_type" string="Sample type" context="{'group_by': 'sample_type'}"/>
             </search>
         </field>
     </record>
