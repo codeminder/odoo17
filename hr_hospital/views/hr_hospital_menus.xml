@@ -84,6 +84,15 @@
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="hr_hospital_sick_view_search"/>
     </record>
+    
+    <!-- Define action for Analises Pivot-->
+    <record id="hr_hospital_analysis_pivot_action" model="ir.actions.act_window">
+        <field name="name">Analysis Pivot</field>
+        <field name="res_model">hr_hospital.analysis</field>
+        <field name="view_mode">pivot</field>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+    </record>
 
     <!-- Link the actions to menu items -->
     <menuitem id="hr_hospital_patient_menu" name="Patients" parent="hr_hospital_management_menu" action="hr_hospital_patient_action"/>
@@ -110,5 +119,10 @@
             name="Medical Analyses"
             parent="hr_hospital_management_menu"
             action="hr_hospital_analysis_action"/>
+
+    <menuitem id="hr_hospital_analysis_pivot"
+          name="Analysis Pivot"
+          parent="hospital_reporting_menu"
+          action="hr_hospital_analysis_pivot_action"/>
 
 </odoo>

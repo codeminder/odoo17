@@ -48,4 +48,16 @@
         </field>
     </record>
 
+    <record id="hr_hospital_analysis_view_pivot" model="ir.ui.view">
+        <field name="name">hr_hospital.analysis.pivot</field>
+        <field name="model">hr_hospital.analysis</field>
+        <field name="arch" type="xml">
+            <pivot string="Analysis">
+                <field name="doctor_id" type="row"/>
+                <field name="sample_type" type="col"/>
+                <!-- <field name="id" type="measure" operator="count"/> -->
+            </pivot>
+        </field>
+    </record>
+
 </odoo>
