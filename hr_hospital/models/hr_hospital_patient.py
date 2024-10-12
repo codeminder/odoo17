@@ -56,7 +56,7 @@ class Patient(models.Model):
                         'doctor_id': record.doctor_id.id
                     })
         return res
-    
+
     # Show history of appointment
     def action_show_appointments_history(self):
         return {

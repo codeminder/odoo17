@@ -16,9 +16,12 @@ class Doctor(models.Model):
         domain="[('is_intern', '=', False)]",
         help="The mentor doctor for this intern."
     )
-    
+
     # Field for interns (inverse of mentor_id)
-    intern_ids = fields.One2many('hr_hospital.doctor', 'mentor_id', string="Interns")
+    intern_ids = fields.One2many('hr_hospital.doctor',
+                                 'mentor_id', string="Interns")
 
     # Field for search by appointments for patients
-    personal_patient_ids = fields.One2many('hr_hospital.patient', 'doctor_id', string="Personal Patients")
+    personal_patient_ids = fields.One2many('hr_hospital.patient',
+                                           'doctor_id',
+                                           string="Personal Patients")

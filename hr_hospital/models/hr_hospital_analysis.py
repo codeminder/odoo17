@@ -16,7 +16,8 @@ class Analysis(models.Model):
         ('other', 'Other')
     ], required=True, default='blood')
     result = fields.Text()
-    
-    patient_first_name = fields.Char(related='patient_id.first_name', store=True)
+
+    patient_first_name = fields.Char(
+        related='patient_id.first_name', store=True)
     patient_last_name = fields.Char(related='patient_id.last_name', store=True)
     patient_phone = fields.Char(related='patient_id.phone', store=True)

@@ -23,7 +23,7 @@
         <field name="name">hr.hospital.analysis.tree</field>
         <field name="model">hr_hospital.analysis</field>
         <field name="arch" type="xml">
-            <tree string="Medical Analyses">
+            <tree>
                 <field name="patient_id"/>
                 <field name="doctor_id"/>
                 <field name="sample_type" widget="statusbar"/>

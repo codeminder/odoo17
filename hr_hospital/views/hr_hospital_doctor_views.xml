@@ -146,14 +146,6 @@
         <field name="view_id" ref="hr_hospital_doctor_view_kanban"/>
     </record>
 
-    <!-- Action for a calling the kanban from main menu -->
-    <record id="action_hr_hospital_doctor_kanban" model="ir.actions.act_window">
-        <field name="name">Doctors Kanban</field>
-        <field name="res_model">hr_hospital.doctor</field>
-        <field name="view_mode">kanban,tree,form</field>
-        <field name="view_id" ref="hr_hospital_doctor_view_kanban"/>
-    </record>
-
     <!-- A link the kanban to main menu -->
     <record id="menu_hr_hospital_doctor_kanban" model="ir.ui.menu">
         <field name="name">Doctors Kanban</field>
