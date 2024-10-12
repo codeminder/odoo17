@@ -51,6 +51,7 @@
                     <field name="passport_data"/>
                 </group>
                 <group>
+                    <field name="phone"/>
                     <field name="contact_person_id"/>
                     <field name="doctor_id"/>
                 </group>

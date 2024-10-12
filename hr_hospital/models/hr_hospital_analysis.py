@@ -10,3 +10,7 @@ class Analysis(models.Model):
     doctor_id = fields.Many2one('hr_hospital.doctor')
     analysis_date = fields.Datetime()
     result = fields.Text()
+    
+    patient_first_name = fields.Char(related='patient_id.first_name', store=True)
+    patient_last_name = fields.Char(related='patient_id.last_name', store=True)
+    patient_phone = fields.Char(related='patient_id.phone', store=True)

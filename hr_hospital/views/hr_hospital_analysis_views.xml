@@ -30,4 +30,20 @@
         </field>
     </record>
 
+    <record id="hr_hospital_analysis_view_search" model="ir.ui.view">
+        <field name="name">hr.hospital.analysis.search</field>
+        <field name="model">hr_hospital.analysis</field>
+        <field name="arch" type="xml">
+            <search string="Search Analysis">
+
+                <!-- Find by firstname and lastname simulateonsly-->
+                <field name="patient_first_name" string="Patient Name"
+                    filter_domain="['|', ('patient_first_name', 'ilike', self), ('patient_last_name', 'ilike', self)]"/>
+                <!-- Find by phonenumber -->
+                <field name="patient_phone" string="Patient Phone"/>
+
+            </search>
+        </field>
+    </record>
+
 </odoo>

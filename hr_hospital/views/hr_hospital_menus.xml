@@ -71,6 +71,7 @@
         <field name="name">Medical Analyses</field>
         <field name="res_model">hr_hospital.analysis</field>
         <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="hr_hospital_analysis_view_search"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create the first medical analysis</p>
         </field>
